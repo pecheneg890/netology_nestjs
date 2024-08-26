@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -p ./tsconfig.json -w",
+    "eslint": "eslint --cache src"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,11 @@
   "bugs": {
     "url": "https://github.com/pecheneg890/netology_nestjs/issues"
   },
-  "homepage": "https://github.com/pecheneg890/netology_nestjs#readme"
+  "homepage": "https://github.com/pecheneg890/netology_nestjs#readme",
+  "devDependencies": {
+    "eslint": "^9.9.1",
+    "globals": "^15.9.0",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.2.0"
+  }
 }
