@@ -23,5 +23,8 @@
     "globals": "^15.9.0",
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.2.0"
+  },
+  "dependencies": {
+    "reflect-metadata": "^0.2.2"
   }
 }

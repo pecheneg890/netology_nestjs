@@ -13,6 +13,7 @@ export default [
       "prefer-const": "error",
       "@typescript-eslint/no-unused-vars": "off",
       "no-undef": "error",
+      "@typescript-eslint/no-unsafe-function-type": "off"
   }
   }
 ];
