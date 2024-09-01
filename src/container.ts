@@ -1,7 +1,7 @@
-const inversify = require("inversify");
-require("reflect-metadata");
-const BooksRepository = require("./book-repository");
+import * as inversify from "inversify";
+import BooksRepository from "./book-repository";
 
+const a = new BooksRepository();
 // Declare BooksRepository as injectable
 inversify.decorate(inversify.injectable(), BooksRepository);
 
@@ -11,4 +11,4 @@ const container = new inversify.Container();
 //Declare bindings 
 container.bind(BooksRepository).toSelf();
 
-module.exports = container;
+export default container;

@@ -1,10 +1,10 @@
 
-const express = require('express');
-const container = require('../container');
+import express from 'express';
+import container from '../container';
 const router = express.Router();
-const { multer, BOOK_FOLDER } = require('../middleware/file');
-const path = require('node:path');
-const BooksRepository = require("../book-repository");
+import { multerExt, BOOK_FOLDER } from '../middleware/file';
+import path from 'node:path';
+import BooksRepository from "../book-repository";
 
 
 router.get('/', async (req, res) => {
@@ -25,7 +25,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.post('/', multer.single('book'),
+router.post('/', multerExt.single('book'),
     async (req, res) => {
         try {
             const repo = container.get(BooksRepository);
@@ -86,7 +86,7 @@ router.get('/:id/download', async (req, res) => {
 
     try {
         const repo = container.get(BooksRepository);
-        const book = await repol.getOne(id);
+        const book = await repo.getOne(id);
         res.download(path.join(BOOK_FOLDER, book.fileBook), book.fileName);
     } catch (e) {
         res.status(404);
@@ -94,4 +94,4 @@ router.get('/:id/download', async (req, res) => {
     }
 });
 
-module.exports = router;
+export default router;

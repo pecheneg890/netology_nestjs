@@ -1,28 +1,28 @@
-const Book = require('./models/book');
-const { v4: uuid } = require('uuid');
+import Book from './models/book';
+//import { v4 as uuid } from 'uuid';
 
 class BooksRepository {
     async getAll() {
         return await Book.find().select('-__v');
     }
 
-    async getOne(id) {
+    async getOne(id: any) {
         return await Book.findById(id).select('-__v');
     }
 
-    async update(id, content) {
+    async update(id: any, content: any) {
         return await Book.findByIdAndUpdate(id, content, { returnDocument: 'after' }).select('-__v');
     }
 
-    async delete(id) {
+    async delete(id: any) {
         return await Book.findByIdAndDelete(id);
     }
 
-    async create(content) {
+    async create(content: any) {
         const newBook = new Book(content);
         await newBook.save();
         return newBook.toObject({ versionKey: false });
     }
 };
 
-module.exports = BooksRepository;
+export default BooksRepository;

@@ -1,5 +1,4 @@
-const multer = require('multer');
-
+import multer from 'multer';
 
 const BOOK_FOLDER = 'book_storage';
 const storage = multer.diskStorage({
@@ -11,4 +10,5 @@ const storage = multer.diskStorage({
     }
 });
 
-module.exports = {multer: multer({storage}), BOOK_FOLDER};
+const multerExt = multer({storage});
+export { multerExt, BOOK_FOLDER};

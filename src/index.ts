@@ -1,8 +1,8 @@
-const express = require('express');
-const booksRouter = require('./routes/books');
-const userRouter = require('./routes/user');
-const error404 = require('./middleware/err-404');
-const mongoose = require('mongoose');
+import express from 'express';
+import booksRouter from './routes/books';
+import userRouter from './routes/user';
+import error404 from './middleware/err-404';
+import mongoose from 'mongoose';
 
 const app = express();
 app.use(express.json());
