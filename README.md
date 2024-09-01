@@ -1,7 +1,13 @@
 ## Запуск
 ```
-docker-compose up 
+docker compose up 
 ```
+
+## Запуск в режиме разработки
+```
+docker compose -f ./docker-compose.dev.yml up
+```
+
 
 ## Папки с данными
 ```
@@ -20,9 +26,3 @@ mongodb/db - файлы базы данных
 `DELETE`|`localhost:8080/api/books/:id`|удалить книгу по ID||
 `GET`|`localhost:8080/api/books/:id/download`|скачать книгу по ID||
 
-## InversifyJS
-```
-Класс который помещаем в контейнер - BooksRepository
-Создание контейнера - container.js
-Использование контейнера - routes/books.js
-```
