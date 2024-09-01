@@ -86,7 +86,7 @@ router.get('/:id/download', async (req, res) => {
 
     try {
         const repo = container.get(BooksRepository);
-        const book = await repol.getOne(id);
+        const book = await repo.getOne(id);
         res.download(path.join(BOOK_FOLDER, book.fileBook), book.fileName);
     } catch (e) {
         res.status(404);
