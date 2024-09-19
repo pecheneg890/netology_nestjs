@@ -55,11 +55,12 @@ export class RxjsService {
       const data$ = this.searchGithub(text, count).pipe(toArray());
       return await firstValueFrom(data$);
     }
-    else if (hub === "gitlab"){
+
+    if (hub === "gitlab"){
       const data$ = this.searchGitlab(text, count).pipe(toArray());
       return await firstValueFrom(data$);
-    } else {
-      return Promise.resolve({error: "hub should be github or gitlab"})
     }
+    
+    return Promise.resolve({error: "hub should be github or gitlab"});
   }
 }
