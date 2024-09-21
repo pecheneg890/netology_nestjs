@@ -15,6 +15,7 @@ export class AppController {
 
   @Get()
   getHello(): string {
+    //для вызова exception filter
     throw new HttpException('Not implemented', HttpStatus.NOT_FOUND);
     return this.appService.getHello();
   }
