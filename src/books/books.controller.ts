@@ -6,11 +6,17 @@ import {
   Body,
   Param,
   Put,
+  UsePipes,
+  UseInterceptors,
 } from '@nestjs/common';
-import { CreateBookDto, UpdateBookDto } from './interfaces';
+import { CreateBookDto, UpdateBookDto } from './dto/books.dto';
 import { BooksService } from './books.service';
+import { IdValidationPipe } from './validation/id.validation.pipe';
+import { BookValidationPipe } from './validation/book.validation.pipe';
+import { LoggingInterceptor } from './book.logging.interceptor';
 
 @Controller('books')
+@UseInterceptors(LoggingInterceptor)
 export class BooksController {
   constructor(private readonly booksService: BooksService) {}
 
@@ -20,22 +26,26 @@ export class BooksController {
   }
 
   @Get(':id')
-  async getBook(@Param('id') id: string) {
+  async getBook(@Param('id', IdValidationPipe) id: string) {
     return await this.booksService.getBook(id);
   }
 
   @Post()
+  @UsePipes(new BookValidationPipe())
   async createBook(@Body() book: CreateBookDto) {
     await this.booksService.createBook(book);
   }
 
   @Delete(':id')
-  async deleteBook(@Param('id') id: string) {
+  async deleteBook(@Param('id', IdValidationPipe) id: string) {
     return await this.booksService.deleteBook(id);
   }
 
   @Put(':id')
-  async updateBook(@Param('id') id: string, @Body() book: UpdateBookDto) {
+  async updateBook(
+    @Param('id', IdValidationPipe) id: string,
+    @Body(new BookValidationPipe()) book: UpdateBookDto,
+  ) {
     return await this.booksService.updateBook(id, book);
   }
 }
