@@ -27,21 +27,17 @@
 
 ## Решение заданий
 ### Задание 1.
-```
 interceptor в файле book.logging.interceptor.ts, перехватает запросы к контроллеру BooksController
-```
+
 ### Задание 2.
-```
 Pipe реализован в файле id.validation.pipe.ts, реализует проверку формата и приведение к нижнему регистру для параметра id в контроллере BooksController
-```
+
 ### Задание 3.
-```
 Валидация сделана с помощью class-validator, проверяет DTO классы CreateBookDto, UpdateBookDto
-```
+
 ### Задание 4.
-```
 Exception Filter релизован для контроллера AppController
-```
+
 
 
 ## Description
