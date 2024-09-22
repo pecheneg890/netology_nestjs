@@ -8,15 +8,18 @@ import {
   Put,
   UsePipes,
   UseInterceptors,
+  UseGuards,
 } from '@nestjs/common';
 import { CreateBookDto, UpdateBookDto } from './dto/books.dto';
 import { BooksService } from './books.service';
 import { IdValidationPipe } from './validation/id.validation.pipe';
 import { BookValidationPipe } from './validation/book.validation.pipe';
 import { LoggingInterceptor } from './book.logging.interceptor';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('books')
 @UseInterceptors(LoggingInterceptor)
+@UseGuards(AuthGuard('jwt'))
 export class BooksController {
   constructor(private readonly booksService: BooksService) {}
 

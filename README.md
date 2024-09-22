@@ -25,20 +25,27 @@
 ## Настройка
 Для настройки необходимо создать файл .env, для примера смотреть .env.example
 
-## Решение заданий
-### Задание 1.
-interceptor в файле book.logging.interceptor.ts, перехватает запросы к контроллеру BooksController
+## Решение задания
+Регистрация пользователя /api/users/signup
+```
+POST запрос
+{ 
+  email: "string", 
+  password: "string", 
+  firstName: "string", 
+  lastName: "string" 
+}
+```
+Вход пользователя /api/users/signin
+```
+POST запрос
+{ 
+  email: "string", 
+  password: "string" 
+}
+```
 
-### Задание 2.
-Pipe реализован в файле id.validation.pipe.ts, реализует проверку формата и приведение к нижнему регистру для параметра id в контроллере BooksController
-
-### Задание 3.
-Валидация сделана с помощью class-validator, проверяет DTO классы CreateBookDto, UpdateBookDto
-
-### Задание 4.
-Exception Filter релизован для контроллера AppController
-
-
+Пути зашищенные Guard с JWT токеном /books
 
 ## Description
 
