@@ -25,6 +25,24 @@
 ## Настройка
 Для настройки необходимо создать файл .env, для примера смотреть .env.example
 
+## Решение задания
+unit тесты 
+```
+books.service.spec.ts
+```
+Запуск unit тестов 
+```
+npm run test
+```
+e2e тесты 
+```
+books.e2e-spec.ts
+```
+Запуск e2e тестов 
+```
+npm run test:e2e
+```
+
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.

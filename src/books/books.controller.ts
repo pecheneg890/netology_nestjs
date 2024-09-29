@@ -26,7 +26,7 @@ export class BooksController {
 
   @Post()
   async createBook(@Body() book: CreateBookDto) {
-    await this.booksService.createBook(book);
+    return await this.booksService.createBook(book);
   }
 
   @Delete(':id')
