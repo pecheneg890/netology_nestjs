@@ -3,7 +3,9 @@
 
 ## Решение задания
 ```
-Клиентская часть для ввода и просмотра комментариев доступна по ссылке http://localhost:3000/static/index.html
+Клиентская часть для ввода и просмотра комментариев доступна по ссылке 
+http://localhost:3000/static/index.html
+
 Серверная часть:
 books.gateway.ts - gateway для web socket
 book-comment.service.ts - сервис по работе с комментариями
